@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">doo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
+    <string name="title_activity_package">PackageActivity</string>
+    <string name="title_activity_player">PlayerActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="login">เข้าสู่ระบบ</string>
+    <string name="email">อีเมล์</string>
+    <string name="password">รหัสผ่าน</string>
+    <string name="register">สมัครสมาชิก</string>
+    <string name="password_min">รหัสผ่านอย่างน้อย 4 ตัวอักษร</string>
+    <string name="password_confirm">ยืนยันรหัสผ่าน</string>
+
+</resources>
