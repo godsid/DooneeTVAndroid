@@ -18,5 +18,17 @@
     <string name="register">สมัครสมาชิก</string>
     <string name="password_min">รหัสผ่านอย่างน้อย 4 ตัวอักษร</string>
     <string name="password_confirm">ยืนยันรหัสผ่าน</string>
+    <string name="firstname">ชื่อ</string>
+    <string name="lastname">นามสกุล</string>
+    <string name="phone">เบอร์โทรศัพท์</string>
+    <string name="movie_title">ชื่อเรื่อง</string>
+    <string name="movie_description">รายละเอียด</string>
+    <string name="movie_score">คะแนน</string>
+    <string name="movie_rating">เรท</string>
+    <string name="movie_cast">นักแสดง</string>
+    <string name="movie_director">ผู้กำกับ</string>
+    <string name="movie_year">ปี</string>
+    <string name="movie_length">ความยาว</string>
+    <string name="title_activity_movie">MovieActivity</string>
 
 </resources>

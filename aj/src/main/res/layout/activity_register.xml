@@ -46,4 +46,45 @@
         android:layout_below="@+id/passwordEditText"
         android:layout_alignStart="@+id/passwordEditText"
         android:hint="@string/password_confirm" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/firstNameEditText"
+        android:layout_below="@+id/confirmPasswordEditText"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/firstname" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/lastNameEditText"
+        android:layout_below="@+id/firstNameEditText"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/lastname" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/phoneEditText"
+        android:layout_below="@+id/lastNameEditText"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/phone" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerImageView"
+        android:minHeight="30dp"
+        android:minWidth="150dp"
+        android:layout_below="@+id/phoneEditText"
+        android:layout_centerHorizontal="true"
+        android:src="@android:drawable/ic_menu_gallery" />
+
 </RelativeLayout>

@@ -2,6 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="th.co.mediaplex.dooneetv" >
 
+    <!-- <supports-screens android:requiresSmallestWidthDp="600" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Access Storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Camera -->
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <!-- <uses-permission android:name="android.permission.WAKE_LOCK" /> -->
+    <!-- Call Phone -->
+    <!-- <uses-permission android:name="android.permission.CALL_PHONE" /> -->
+    <!-- GCM requires a Google account. -->
+    <!-- <uses-permission android:name="android.permission.GET_ACCOUNTS" /> -->
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -39,6 +54,10 @@
         <activity
             android:name="th.co.mediaplex.dooneetv.RegisterActivity"
             android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name="th.co.mediaplex.dooneetv.MovieActivity"
+            android:label="@string/title_activity_movie" >
         </activity>
     </application>
 

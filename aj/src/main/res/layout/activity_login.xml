@@ -25,7 +25,7 @@
         android:text="@string/login"
         android:id="@+id/textView"
         android:layout_below="@+id/LogoImageView"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,9 +33,9 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/emailEditText"
+        android:hint="@string/email"
         android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:hint="@string/email" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -43,21 +43,19 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordEditText"
+        android:hint="@string/password"
         android:layout_below="@+id/emailEditText"
-        android:layout_alignParentStart="true"
-        android:hint="@string/password" />
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/loginImageView"
         android:minWidth="100dp"
         android:minHeight="30dp"
-        android:layout_below="@+id/passwordEditText"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentLeft="false"
         android:layout_alignWithParentIfMissing="false"
-        android:src="@android:drawable/ic_menu_gallery" />
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_alignStart="@+id/LogoImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/passwordEditText" />
 </RelativeLayout>
