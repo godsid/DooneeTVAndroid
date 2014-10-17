@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="th.co.mediaplex.dooneetv.MovieDetailActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/coverImageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:minWidth="258px"
+        android:minHeight="386px"
+        android:src="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_title"
+        android:id="@+id/textView"
+        android:layout_toEndOf="@+id/coverImageView"
+        android:layout_alignTop="@+id/coverImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_description"
+        android:id="@+id/movieDescTextView"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_score"
+        android:id="@+id/scoreTextView"
+        android:layout_below="@+id/movieDescTextView"
+        android:layout_alignStart="@+id/movieDescTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_rating"
+        android:id="@+id/ratingTextView"
+        android:layout_below="@+id/scoreTextView"
+        android:layout_alignStart="@+id/scoreTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_cast"
+        android:id="@+id/castTextView"
+        android:layout_below="@+id/ratingTextView"
+        android:layout_toEndOf="@+id/coverImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_director"
+        android:id="@+id/directorTextView"
+        android:layout_below="@+id/castTextView"
+        android:layout_alignStart="@+id/castTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_year"
+        android:id="@+id/yearTextView"
+        android:layout_below="@+id/directorTextView"
+        android:layout_toEndOf="@+id/coverImageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movie_length"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/yearTextView"
+        android:layout_toEndOf="@+id/coverImageView" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playImageView"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:src="@android:drawable/ic_menu_gallery" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/subscribeImageView"
+        android:layout_below="@+id/textView2"
+        android:layout_toEndOf="@+id/playImageView"
+        android:src="@android:drawable/ic_menu_gallery" />
+
+</RelativeLayout>
