@@ -1,18 +1,15 @@
 package th.co.mediaplex.dooneetv.player;
 
 import android.app.Activity;
-
 import android.content.Intent;
 import android.media.MediaCodec.CryptoException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.widget.MediaController;
 import android.widget.Toast;
 
@@ -25,7 +22,6 @@ import com.google.android.exoplayer.VideoSurfaceView;
 import com.google.android.exoplayer.util.PlayerControl;
 
 import th.co.mediaplex.dooneetv.Config;
-import th.co.mediaplex.dooneetv.DemoUtil;
 import th.co.mediaplex.dooneetv.R;
 
 
@@ -76,8 +72,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback,
 
         Intent intent = getIntent();
         contentUri = Uri.parse(Config.sampleVideoRTSP);
-        contentType = intent.getIntExtra(DemoUtil.CONTENT_TYPE_EXTRA, TYPE_OTHER);
-        contentId = intent.getStringExtra(DemoUtil.CONTENT_ID_EXTRA);
+        contentType = TYPE_SS_VOD;//intent.getIntExtra(DemoUtil.CONTENT_TYPE_EXTRA, TYPE_OTHER);
+        contentId = "12345467890";//intent.getStringExtra(DemoUtil.CONTENT_ID_EXTRA);
 
         mainHandler = new Handler(getMainLooper());
         builder = getRendererBuilder();

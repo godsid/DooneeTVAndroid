@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package th.co.mediaplex.dooneetv;
+package th.co.mediaplex.dooneetv.player;
 
 import com.google.android.exoplayer.ExoPlayerLibraryInfo;
 

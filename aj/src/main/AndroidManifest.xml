@@ -22,7 +22,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="th.co.mediaplex.dooneetv.MainActivity"
@@ -63,6 +63,13 @@
             android:name="th.co.mediaplex.dooneetv.MovieActivity"
             android:label="@string/title_activity_movie" >
         </activity>
+        <activity
+            android:name="th.co.mediaplex.dooneetv.SimplePlayerActivity"
+            android:label="SimplePlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/PlayerTheme">
+        </activity>
+
     </application>
 
 </manifest>
