@@ -23,4 +23,9 @@
 
     <style name="ButtonBarButton" />
 
+    <style name="PlayerTheme" parent="@style/AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
 </resources>

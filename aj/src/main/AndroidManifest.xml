@@ -5,9 +5,11 @@
     <!-- <supports-screens android:requiresSmallestWidthDp="600" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- Access Storage -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <!-- Camera -->
     <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
     <!-- Keeps the processor from sleeping when a message is received. -->
@@ -44,8 +46,10 @@
             android:label="@string/title_activity_package" >
         </activity>
         <activity
-            android:name="th.co.mediaplex.dooneetv.PlayerActivity"
-            android:label="@string/title_activity_player" >
+            android:name=".player.PlayerActivity"
+            android:label="@string/title_activity_player"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/PlayerTheme">
         </activity>
         <activity
             android:name="th.co.mediaplex.dooneetv.LoginActivity"
