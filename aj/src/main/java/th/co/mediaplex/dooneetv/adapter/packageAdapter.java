@@ -8,7 +8,7 @@ import android.widget.ImageView;
 /**
  * Created by Banpot.S on 10/16/14 AD.
  */
-public class packageAdapter extends BaseAdapter{
+public class PackageAdapter extends BaseAdapter{
     @Override
     public int getCount() {
         return 0;
@@ -30,6 +30,6 @@ public class packageAdapter extends BaseAdapter{
     }
 }
 
-class itemPackageView{
+class PackageItemView{
     ImageView bannerImageView;
 }

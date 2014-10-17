@@ -10,13 +10,20 @@
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/bannerSlider"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         />
     <GridView
         android:layout_width="wrap_content"
         android:layout_height="400px"
-        android:id="@+id/gridView"
+        android:id="@+id/movieHotGridView"
         android:layout_below="@+id/bannerSlider"
+        android:layout_centerHorizontal="true"
+        android:numColumns="5" />
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="400px"
+        android:id="@+id/movieAllGridView"
+        android:layout_below="@+id/movieHotGridView"
         android:layout_centerHorizontal="true"
         android:numColumns="5" />
 </RelativeLayout>

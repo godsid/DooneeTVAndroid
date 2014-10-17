@@ -24,6 +24,10 @@ public class Movie {
     private int movie_id, score, year, length, view;
     private boolean is_free, is_hd, is_hot, is_3d, is_series, is_soon, is_18;
 
+    public  Movie(int movie_id,String cover){
+        this.movie_id = movie_id;
+        this.cover = cover;
+    }
     public Movie(JSONObject movieJSON){
         try {
             this.title = movieJSON.getString("title");
