@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/coverImageView"
+        android:id="@+id/bannerImageView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:minWidth="258px"
@@ -22,17 +22,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/movie_title"
-        android:id="@+id/textView"
-        android:layout_toEndOf="@+id/coverImageView"
-        android:layout_alignTop="@+id/coverImageView" />
+        android:id="@+id/descriptionTextView"
+        android:layout_toEndOf="@+id/bannerImageView"
+        android:layout_alignTop="@+id/bannerImageView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/movie_description"
         android:id="@+id/movieDescTextView"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_below="@+id/descriptionTextView"
+        android:layout_alignStart="@+id/descriptionTextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
         android:text="@string/movie_cast"
         android:id="@+id/castTextView"
         android:layout_below="@+id/ratingTextView"
-        android:layout_toEndOf="@+id/coverImageView" />
+        android:layout_toEndOf="@+id/bannerImageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
         android:text="@string/movie_year"
         android:id="@+id/yearTextView"
         android:layout_below="@+id/directorTextView"
-        android:layout_toEndOf="@+id/coverImageView" />
+        android:layout_toEndOf="@+id/bannerImageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
         android:text="@string/movie_length"
         android:id="@+id/textView2"
         android:layout_below="@+id/yearTextView"
-        android:layout_toEndOf="@+id/coverImageView" />
+        android:layout_toEndOf="@+id/bannerImageView" />
 
     <ImageView
         android:layout_width="wrap_content"

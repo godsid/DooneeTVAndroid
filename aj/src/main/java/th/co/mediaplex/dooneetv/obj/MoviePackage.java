@@ -6,11 +6,14 @@ import org.json.JSONObject;
 /**
  * Created by Banpot.S on 10/16/14 AD.
  */
-public class Package {
+public class MoviePackage {
     private String title, banner, name, detail, conditions, partner;
     private int package_id, dayleft, price;
 
-    public Package(JSONObject packageJSON){
+    public MoviePackage(int package_id){
+        this.package_id = package_id;
+    }
+    public MoviePackage(JSONObject packageJSON){
         try {
             this.title = packageJSON.getString("title");
             this.banner = packageJSON.getString("banner");
@@ -26,6 +29,14 @@ public class Package {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public MoviePackage(int package_id, String title, String banner, int dayleft, int price) {
+        this.package_id = package_id;
+        this.title = title;
+        this.banner = banner;
+        this.dayleft = dayleft;
+        this.price = price;
     }
 
     public String getTitle() {

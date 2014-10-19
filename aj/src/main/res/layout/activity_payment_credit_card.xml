@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="th.co.mediaplex.dooneetv.PaymentCreditCardActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_creditcard_label"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:nextFocusDown="@+id/monthEditText"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/cardnoEditText"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:maxLength="16"
+        android:hint="XXXX-XXXX-XXXX-XXXX" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_creditcard_expire"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/cardnoEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/monthEditText"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="MM"
+        android:maxLength="2"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yearEditText"
+        android:layout_below="@+id/textView2"
+        android:layout_toRightOf="@+id/monthEditText"
+        android:layout_toEndOf="@+id/monthEditText"
+        android:maxLength="4"
+        android:hint="YYYY"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_creditcard_name"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/monthEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="450px"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameEditText"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:maxLength="100"
+        android:inputType="textPersonName"
+        android:nextFocusUp="@+id/monthEditText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_creditcard_cvv"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/nameEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cvvEditText"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:inputType="numberPassword"
+        android:maxLength="3"
+        android:hint="CVV2/CVC2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_card_submitbt"
+        android:id="@+id/submitButton"
+        android:layout_below="@+id/cvvEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/visa_master" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_toEndOf="@+id/submitButton"
+        android:src="@drawable/cvv"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@+id/nameEditText"
+        android:layout_toRightOf="@+id/cvvEditText"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

@@ -23,8 +23,20 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="th.co.mediaplex.dooneetv.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".SplashScreenActivity"
+            android:label="@string/title_activity_splash_screen" >
+        </activity>
+        <activity
+            android:name=".MovieDetailActivity"
+            android:label="@string/title_activity_movie_detail" >
+        </activity>
+        <activity
+            android:name=".PackageActivity"
+            android:label="@string/title_activity_package" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,32 +44,46 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="th.co.mediaplex.dooneetv.SplashScreenActivity"
-            android:label="@string/title_activity_splash_screen" >
-        </activity>
-        <activity
-            android:name="th.co.mediaplex.dooneetv.MovieDetailActivity"
-            android:label="@string/title_activity_movie_detail" >
-        </activity>
-        <activity
-            android:name="th.co.mediaplex.dooneetv.PackageActivity"
-            android:label="@string/title_activity_package" >
-        </activity>
-        <activity
-            android:name="th.co.mediaplex.dooneetv.PlayerActivity"
+            android:name=".PlayerActivity"
             android:label="@string/title_activity_player" >
         </activity>
         <activity
-            android:name="th.co.mediaplex.dooneetv.LoginActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
         <activity
-            android:name="th.co.mediaplex.dooneetv.RegisterActivity"
+            android:name=".RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:name="th.co.mediaplex.dooneetv.MovieActivity"
+            android:name=".MovieActivity"
             android:label="@string/title_activity_movie" >
+        </activity>
+        <activity
+            android:name=".PackageDetailActivity"
+            android:label="@string/title_activity_package_detail"
+            android:theme="@style/DialogNoActionBar" >
+        </activity>
+        <activity
+            android:name=".PaymentChooseActivity"
+            android:label="@string/title_activity_payment_choose"
+            android:theme="@style/DialogNoActionBar" >
+        </activity>
+        <activity
+            android:name=".PaymentCreditCardActivity"
+            android:label="@string/title_activity_payment_credit_card" >
+        </activity>
+        <activity
+            android:name=".PaymentBankActivity"
+            android:label="@string/title_activity_payment_bank" >
+        </activity>
+        <activity
+            android:name=".PaymentPayPointActivity"
+            android:label="@string/title_activity_payment_pay_point" >
+        </activity>
+        <activity
+            android:name=".PaymentPrepaidCardActivity"
+            android:label="@string/title_activity_payment_prepaid_card" >
         </activity>
     </application>
 

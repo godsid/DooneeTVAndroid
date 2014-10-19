@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="th.co.mediaplex.dooneetv.PaymentBankActivity"
+    android:gravity="center_vertical|center_horizontal">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_choose_bank"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/font_detail_title" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scbImageButton"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/payment_scb"
+        android:nextFocusLeft="@+id/kbankImageButton"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tmbImageButton"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/scbImageButton"
+        android:layout_toEndOf="@+id/scbImageButton"
+        android:src="@drawable/payment_tmb"
+        android:focusable="false" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/thanachartImageButton"
+        android:layout_alignTop="@+id/tmbImageButton"
+        android:layout_toRightOf="@+id/tmbImageButton"
+        android:layout_toEndOf="@+id/tmbImageButton"
+        android:src="@drawable/payment_thanachart" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/krungsriImageButton"
+        android:layout_alignTop="@+id/thanachartImageButton"
+        android:layout_toRightOf="@+id/thanachartImageButton"
+        android:layout_toEndOf="@+id/thanachartImageButton"
+        android:src="@drawable/payment_krungsri"
+        android:nextFocusRight="@+id/bangkokbankImageButton"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bangkokbankImageButton"
+        android:layout_toEndOf="@+id/krungsriImageButton"
+        android:src="@drawable/payment_bangkokbank"
+        android:layout_below="@+id/scbImageButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:nextFocusLeft="@id/krungsriImageButton" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/uobImageButton"
+        android:layout_below="@+id/scbImageButton"
+        android:layout_toRightOf="@+id/bangkokbankImageButton"
+        android:layout_toEndOf="@+id/bangkokbankImageButton"
+        android:src="@drawable/payment_uob" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ktbImageButton"
+        android:layout_below="@+id/tmbImageButton"
+        android:layout_toRightOf="@+id/uobImageButton"
+        android:layout_toEndOf="@+id/uobImageButton"
+        android:src="@drawable/payment_ktb" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/kbankImageButton"
+        android:layout_below="@+id/krungsriImageButton"
+        android:layout_toRightOf="@+id/ktbImageButton"
+        android:layout_toEndOf="@+id/ktbImageButton"
+        android:src="@drawable/payment_kbank"
+        android:nextFocusRight="@+id/scbImageButton"/>
+</RelativeLayout>

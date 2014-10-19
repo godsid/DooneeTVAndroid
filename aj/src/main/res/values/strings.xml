@@ -30,5 +30,31 @@
     <string name="movie_year">ปี</string>
     <string name="movie_length">ความยาว</string>
     <string name="title_activity_movie">MovieActivity</string>
+    <string name="error_json_null">ข้อมูลผิดพลาด กรุณาลองใหม่อีกครั้งค่ะ</string>
+    <string name="error_payment_code_invalid">รหัสไม่ถูกต้องค่ะ</string>
+    <string name="error_payment_creditno_invalid">หมายเลขบัตรไม่ถูกต้องค่ะ</string>
+    <string name="error_payment_creditexpire_invalid">วันหมดอายุไม่ถูกต้องค่ะ</string>
+    <string name="error_payment_creditname_invalid">ชื่อ-นามสกุล บนบัตรไม่ถูกต้องค่ะ</string>
+    <string name="error_payment_creditcvv_invalid">หมายเลขหลังบัตรไม่ถูกต้องค่ะ</string>
+    <string name="title_activity_package_detail">รายละเอียดแพ๊กเกจ</string>
+    <string name="payment_creditcard">บัตรเครดิต</string>
+    <string name="payment_bankcounter">เคาน์เตอร์ธนาคาร</string>
+    <string name="payment_atm">เอทีเอ็ม</string>
+    <string name="payment_paypoint">จุดรับชำระค่าบริการ</string>
+    <string name="payment_ibanking">ไอแบงก์กิ้ง</string>
+    <string name="payment_prepaidcard">บัตรเติมเงิน</string>
+    <string name="title_activity_payment_choose">PaymentChooseActivity</string>
+    <string name="title_activity_payment_credit_card">เครดิตการ์ด</string>
+    <string name="title_activity_payment_bank">ชำระเงินผ่านธนาคาร</string>
+    <string name="payment_choose_bank">เลือกธนาคาร</string>
+    <string name="title_activity_payment_pay_point">จุดรับชำระเงิน</string>
+    <string name="title_activity_payment_prepaid_card">ชำระผ่านบัตรเติมเงิน</string>
+    <string name="payment_card_title">ใส่รหัสบัตรเติมเงินของคุณ 16 หลัก</string>
+    <string name="payment_card_submitbt">ยืนยันการชำระเงิน</string>
+    <string name="payment_creditcard_label">หมายเลขบัตรเครดิต</string>
+    <string name="payment_creditcard_expire">วันหมดอายุ Ex.01/2014</string>
+    <string name="payment_creditcard_name" >ชื่อ-นามสกุล บนบัตร</string>
+    <string name="payment_creditcard_cvv">หมายเลข cvv (หลังบัตร)</string>
+    <string name="payment_paypoint_title">เลือกจุดชำระเงิน</string>
 
 </resources>

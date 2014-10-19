@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/login"
-        android:id="@+id/textView"
+        android:id="@+id/descriptionTextView"
         android:layout_below="@+id/LogoImageView"
         android:layout_centerHorizontal="true" />
 
@@ -34,7 +34,7 @@
         android:ems="10"
         android:id="@+id/emailEditText"
         android:hint="@string/email"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/descriptionTextView"
         android:layout_centerHorizontal="true" />
 
     <EditText

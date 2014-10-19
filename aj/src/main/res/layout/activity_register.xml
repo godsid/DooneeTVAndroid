@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/register"
-        android:id="@+id/textView"
+        android:id="@+id/descriptionTextView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -23,7 +23,7 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/EmailEditText"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/descriptionTextView"
         android:layout_centerHorizontal="true"
         android:hint="@string/email" />
 

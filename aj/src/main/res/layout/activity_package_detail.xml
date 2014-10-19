@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_dialog_horizontal_margin"
+    android:paddingRight="@dimen/activity_dialog_horizontal_margin"
+    android:paddingTop="@dimen/activity_dialog_vertical_margin"
+    android:paddingBottom="@dimen/activity_dialog_vertical_margin"
+    tools:context="th.co.mediaplex.dooneetv.PackageDetailActivity">
+
+    <TextView
+        android:text="Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTextView"
+        android:textSize="@dimen/font_category_title" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="300px"
+        android:layout_below="@+id/titleTextView"
+        android:id="@+id/scrollView"
+        android:layout_marginTop="5px"
+        android:layout_marginBottom="5px"
+        android:nextFocusRight="@+id/creditCardButton">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="รายละเอียด"
+            android:id="@+id/descriptionTextView"
+            android:layout_below="@+id/titleTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="@dimen/font_detail_subtext"
+            android:maxWidth="1500px"
+            android:minWidth="1000px" />
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/creditCardButton"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_below="@+id/scrollView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:nextFocusLeft="@+id/payPointButton"
+        android:text="@string/payment_creditcard"
+        android:textSize="@dimen/font_card_title" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bankCounterButton"
+        android:layout_alignTop="@+id/creditCardButton"
+        android:layout_toRightOf="@+id/creditCardButton"
+        android:layout_toEndOf="@+id/creditCardButton"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:text="@string/payment_bankcounter"
+        android:textSize="@dimen/font_card_title" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/atmButton"
+        android:layout_toEndOf="@+id/bankCounterButton"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_alignTop="@+id/bankCounterButton"
+        android:layout_toRightOf="@+id/bankCounterButton"
+        android:text="@string/payment_atm"
+        android:textSize="@dimen/font_card_title"
+        android:nextFocusRight="@+id/prepaidCardButton"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prepaidCardButton"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:text="@string/payment_prepaidcard"
+        android:textSize="@dimen/font_card_title"
+        android:layout_below="@+id/creditCardButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:nextFocusLeft="@+id/atmButton"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iBankingButton"
+        android:layout_toEndOf="@+id/prepaidCardButton"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:text="@string/payment_ibanking"
+        android:textSize="@dimen/font_card_title"
+        android:layout_below="@+id/bankCounterButton"
+        android:layout_toRightOf="@+id/prepaidCardButton" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/payPointButton"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:text="@string/payment_paypoint"
+        android:textSize="@dimen/font_card_title"
+        android:nextFocusRight="@+id/creditCardButton"
+        android:layout_toEndOf="@+id/iBankingButton"
+        android:layout_below="@+id/bankCounterButton"
+        android:layout_toRightOf="@+id/iBankingButton" />
+
+
+
+
+
+</RelativeLayout>

@@ -53,7 +53,7 @@ public class MovieAdapter extends BaseAdapter{
         if(convertView==null){
             convertView = mInflater.inflate(R.layout.item_movie,null);
             movieItemView = new MovieItemView();
-            movieItemView.coverImageView =  (ImageView) convertView.findViewById(R.id.coverImageView);
+            movieItemView.coverImageView =  (ImageView) convertView.findViewById(R.id.bannerImageView);
             movieItemView.progressBar =  (ProgressBar) convertView.findViewById(R.id.progressBar);
             convertView.setTag(movieItemView);
         }else{
