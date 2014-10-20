@@ -1,9 +1,12 @@
 package th.co.mediaplex.dooneetv;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -25,9 +28,10 @@ import th.co.mediaplex.dooneetv.obj.ProgressDialogLoading;
 public class LoginActivity extends Activity {
 
     private EditText emailEditText,passwordEditText;
-    private Button loginButton;
+    private Button loginButton,registerButton;
     private AQuery aq;
     protected MyApplication myApplication;
+    private InputMethodManager inputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +46,9 @@ public class LoginActivity extends Activity {
         emailEditText = (EditText)findViewById(R.id.emailEditText);
         passwordEditText = (EditText)findViewById(R.id.passwordEditText);
         loginButton = (Button)findViewById(R.id.loginButton);
+        registerButton = (Button)findViewById(R.id.registerButton);
 
-
-
-        /* Test */
-        emailEditText.setText("banpot.sr@gmail.com");
-        passwordEditText.setText("1234qwer");
-
+        inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,16 +57,33 @@ public class LoginActivity extends Activity {
                 }
             }
         });
+        loginButton.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                }
+            }
+        });
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
     private boolean validateData(){
         if(emailEditText.getText().length()<3){
             emailEditText.requestFocus();
-            Toast.makeText(getApplicationContext(),R.string.error_login_email_invalid,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.error_email_invalid,Toast.LENGTH_SHORT).show();
             return false;
         }
         if(passwordEditText.getText().toString().isEmpty()){
             passwordEditText.requestFocus();
-            Toast.makeText(getApplicationContext(),R.string.error_login_password_invalid,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),R.string.error_password_invalid,Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

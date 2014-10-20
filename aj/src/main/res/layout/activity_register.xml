@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/EmailEditText"
+        android:id="@+id/emailEditText"
         android:layout_below="@+id/descriptionTextView"
         android:layout_centerHorizontal="true"
         android:hint="@string/email" />
@@ -33,9 +33,9 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordEditText"
-        android:layout_below="@+id/EmailEditText"
-        android:layout_alignStart="@+id/EmailEditText"
-        android:hint="@string/password_min" />
+        android:hint="@string/password_min"
+        android:layout_below="@+id/emailEditText"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -43,9 +43,10 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/confirmPasswordEditText"
+        android:hint="@string/password_confirm"
         android:layout_below="@+id/passwordEditText"
-        android:layout_alignStart="@+id/passwordEditText"
-        android:hint="@string/password_confirm" />
+        android:layout_alignLeft="@+id/firstNameEditText"
+        android:layout_alignStart="@+id/firstNameEditText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,8 +56,9 @@
         android:id="@+id/firstNameEditText"
         android:layout_below="@+id/confirmPasswordEditText"
         android:layout_centerHorizontal="true"
-        android:hint="@string/firstname" />
-
+        android:hint="@string/firstname"
+        android:visibility="invisible" />
+<!--
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,26 +67,26 @@
         android:id="@+id/lastNameEditText"
         android:layout_below="@+id/firstNameEditText"
         android:layout_centerHorizontal="true"
-        android:hint="@string/lastname" />
-
+        android:hint="@string/lastname"
+        android:visibility="invisible" />
+-->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
         android:id="@+id/phoneEditText"
-        android:layout_below="@+id/lastNameEditText"
+        android:layout_below="@+id/confirmPasswordEditText"
         android:layout_centerHorizontal="true"
         android:hint="@string/phone" />
 
-    <ImageView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/registerImageView"
-        android:minHeight="30dp"
-        android:minWidth="150dp"
+        android:id="@+id/registerButton"
         android:layout_below="@+id/phoneEditText"
         android:layout_centerHorizontal="true"
-        android:src="@android:drawable/ic_menu_gallery" />
+        android:src="@android:drawable/ic_menu_gallery"
+        android:text="@string/register" />
 
 </RelativeLayout>
