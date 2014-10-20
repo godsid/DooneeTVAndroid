@@ -19,10 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import th.co.mediaplex.dooneetv.adapter.MovieAdapter;
-import th.co.mediaplex.dooneetv.obj.Banner;
 import th.co.mediaplex.dooneetv.obj.Movie;
 
 
@@ -35,7 +33,6 @@ public class MainActivity extends Activity {
     private JSONArray objectArray;
 
    public ArrayList<Movie> movieHotArrayList,movieAllArrayList;
-   public ArrayList<Banner> bannerArratList;
    public MovieAdapter movieHotAdapter,movieAllAdapter;
 
     @Override
@@ -60,17 +57,11 @@ public class MainActivity extends Activity {
                     try {
                         objectArray = object.getJSONObject("movieHot").getJSONArray("items");
                         for (i = 0, j = objectArray.length(); i < j; i++) {
-                            movieHotArrayList.add(new Movie(objectArray.getJSONObject(i).getInt("movie_id"), objectArray.getJSONObject(i).getString("cover")));
-                            //findViewById(R.id.statusImageView).setVisibility(View.VISIBLE);
-
-//                            Boolean hd = objectArray.getJSONObject(i).getBoolean("is_hd");
-//                            if(hd.equals("YES")) {
-//                                Log.e("title", objectArray.getJSONObject(i).getString("title"));
-//                            }
+                            movieHotArrayList.add(new Movie(objectArray.getJSONObject(i)));
                         }
                         objectArray = object.getJSONObject("movies").getJSONArray("items");
                         for (i = 0, j = objectArray.length(); i < j; i++) {
-                            movieAllArrayList.add(new Movie(objectArray.getJSONObject(i).getInt("movie_id"), objectArray.getJSONObject(i).getString("cover")));
+                            movieAllArrayList.add(new Movie(objectArray.getJSONObject(i)));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -108,10 +99,6 @@ public class MainActivity extends Activity {
     }
 
     private void createBannerSlider(){
-        final TextSliderView textSliderView = new TextSliderView(this);
-        //final ArrayList<HashMap<String, String>> arrayList = new ArrayList<HashMap<String, String>>();
-        final HashMap<String,String> url_maps = new HashMap<String, String>();
-
         aq.ajax(url, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -119,29 +106,15 @@ public class MainActivity extends Activity {
                     try {
                         objectArray = object.getJSONObject("banner").getJSONArray("items");
                         for (int a = 0, b = objectArray.length(); a < b; a++) {
-                            url_maps.put(objectArray.getJSONObject(a).getString("title"), objectArray.getJSONObject(a).getString("cover"));
-                            //arrayList.add(url_maps);
-                            //Log.e("title", objectArray.getJSONObject(a).getString("title"));
-                            //Log.e("size", String.valueOf(arrayList.size()));
-                            for (String name : url_maps.keySet()) {
+                            TextSliderView textSliderView = new TextSliderView(getBaseContext());
                                 textSliderView
-                                        .description(name)
-                                        .image(url_maps.get(name))
+                                        .description(objectArray.getJSONObject(a).getString("title"))
+                                        .image(objectArray.getJSONObject(a).getString("cover"))
                                         .setScaleType(BaseSliderView.ScaleType.Fit);
                                 textSliderView.getBundle()
                                         .putString("extra", objectArray.getJSONObject(a).getString("title"));
-                            }
                             bannerSlider.addSlider(textSliderView);
                         }
-//                        for (String name : url_maps.keySet()) {
-//                            textSliderView
-//                                .description(name)
-//                                .image(url_maps.get(name))
-//                                .setScaleType(BaseSliderView.ScaleType.Fit);
-//                                textSliderView.getBundle()
-//                                        .putString("extra", name);
-//                        }
-//                        bannerSlider.addSlider(textSliderView);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

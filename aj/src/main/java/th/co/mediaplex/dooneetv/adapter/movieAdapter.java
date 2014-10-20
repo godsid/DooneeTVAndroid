@@ -75,9 +75,9 @@ public class MovieAdapter extends BaseAdapter{
                     context.startActivity(intent);
                 }
             });
-//        if(movieArrayList.get(position).isIs_hd() == Boolean.valueOf("NO")){
-//            aq.id(movieItemView.statusImageView).image(R.drawable.ic_hd);
-//        }
+        if(movieArrayList.get(position).isIs_hd()){
+            aq.id(movieItemView.statusImageView).image(R.drawable.ic_hd);
+        }
         return convertView;
     }
 }
