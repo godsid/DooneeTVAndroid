@@ -45,17 +45,36 @@
         android:id="@+id/passwordEditText"
         android:hint="@string/password"
         android:layout_below="@+id/emailEditText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:nextFocusRight="@+id/loginButton"
+        android:nextFocusDown="@+id/loginButton" />
 
-    <ImageView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginImageView"
-        android:minWidth="100dp"
-        android:minHeight="30dp"
-        android:layout_alignWithParentIfMissing="false"
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_alignStart="@+id/LogoImageView"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/passwordEditText" />
+        android:layout_below="@+id/passwordEditText"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginButton"
+            android:layout_alignWithParentIfMissing="false"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/passwordEditText"
+            android:text="@string/login" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:id="@+id/registerButton"
+            android:layout_below="@+id/passwordEditText"
+            android:layout_toRightOf="@+id/loginButton"
+            android:layout_toEndOf="@+id/loginButton"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
 </RelativeLayout>

@@ -36,6 +36,8 @@
     <string name="error_payment_creditexpire_invalid">วันหมดอายุไม่ถูกต้องค่ะ</string>
     <string name="error_payment_creditname_invalid">ชื่อ-นามสกุล บนบัตรไม่ถูกต้องค่ะ</string>
     <string name="error_payment_creditcvv_invalid">หมายเลขหลังบัตรไม่ถูกต้องค่ะ</string>
+    <string name="error_login_email_invalid">อีเมล์ไม่ถูกต้องค่ะ</string>
+    <string name="error_login_password_invalid">รหัสผ่านไม่ถูกต้องค่ะ</string>
     <string name="title_activity_package_detail">รายละเอียดแพ๊กเกจ</string>
     <string name="payment_creditcard">บัตรเครดิต</string>
     <string name="payment_bankcounter">เคาน์เตอร์ธนาคาร</string>

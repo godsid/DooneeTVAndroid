@@ -25,7 +25,7 @@ public class Member {
 
     public Member(JSONObject memberJSON){
         try {
-            this.user_id = memberJSON.getInt("member_id");
+            this.user_id = memberJSON.getInt("user_id");
             this.dayleft = memberJSON.getInt("dayleft");
 
             this.email = memberJSON.getString("email");
@@ -36,10 +36,37 @@ public class Member {
             this.phone = memberJSON.getString("phone");
             this.facebook_id = memberJSON.getString("facebook_id");
             this.gender = memberJSON.getString("gender");
+            //this.birthdate = memberJSON.getString("birthdate");
+            //this.expire_date = memberJSON.getString("expire_date");
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+    public JSONObject getJSONObject(){
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("user_id",user_id);
+            jsonObject.put("dayleft",dayleft);
+            jsonObject.put("email",email);
+            jsonObject.put("avatar",avatar);
+            jsonObject.put("firstname",firstname);
+            jsonObject.put("lastname",lastname);
+            jsonObject.put("idcard",idcard);
+            jsonObject.put("phone",phone);
+            jsonObject.put("facebook_id",facebook_id);
+            jsonObject.put("gender",gender);
+            jsonObject.put("dayleft",dayleft);
+            jsonObject.put("expire_date",expire_date);
+            jsonObject.put("expire_date",birthdate);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+    public String getJSONString(){
+        return getJSONObject().toString();
     }
 
     public int getUser_id() {
