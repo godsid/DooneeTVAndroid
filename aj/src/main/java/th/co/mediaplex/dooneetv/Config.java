@@ -45,6 +45,8 @@ public class Config {
 
 
 
+    final static public long SPLASH_SCREEN_DELAY = 3000;
+
 
 
 }

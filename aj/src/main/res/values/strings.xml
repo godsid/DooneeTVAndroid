@@ -57,8 +57,10 @@
     <string name="payment_card_submitbt">ยืนยันการชำระเงิน</string>
     <string name="payment_creditcard_label">หมายเลขบัตรเครดิต</string>
     <string name="payment_creditcard_expire">วันหมดอายุ Ex.01/2014</string>
-    <string name="payment_creditcard_name" >ชื่อ-นามสกุล บนบัตร</string>
+    <string name="payment_creditcard_name">ชื่อ-นามสกุล บนบัตร</string>
     <string name="payment_creditcard_cvv">หมายเลข cvv (หลังบัตร)</string>
     <string name="payment_paypoint_title">เลือกจุดชำระเงิน</string>
+    <string name="version">เวอร์ชั่น</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
 
 </resources>
