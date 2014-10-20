@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/movie_title"
-        android:id="@+id/textView"
+        android:id="@+id/titleTextView"
         android:layout_toEndOf="@+id/coverImageView"
         android:layout_alignTop="@+id/coverImageView" />
 
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         android:text="@string/movie_description"
         android:id="@+id/movieDescTextView"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_below="@+id/titleTextView"
+        android:layout_alignStart="@+id/titleTextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,24 +78,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/movie_length"
-        android:id="@+id/textView2"
+        android:id="@+id/lengthTextView"
         android:layout_below="@+id/yearTextView"
         android:layout_toEndOf="@+id/coverImageView" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/playImageView"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:src="@android:drawable/ic_menu_gallery" />
+        android:id="@+id/playImageButton"
+        android:layout_below="@+id/lengthTextView"
+        android:layout_alignStart="@+id/lengthTextView"
+        android:src="@android:drawable/ic_media_play" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/subscribeImageView"
-        android:layout_below="@+id/textView2"
-        android:layout_toEndOf="@+id/playImageView"
-        android:src="@android:drawable/ic_menu_gallery" />
+        android:id="@+id/subscribeImageButton"
+        android:layout_below="@+id/lengthTextView"
+        android:layout_toEndOf="@+id/playImageButton"
+        android:src="@android:drawable/ic_menu_add" />
 
 </RelativeLayout>

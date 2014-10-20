@@ -6,61 +6,80 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
 
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxCallback;
+import com.androidquery.callback.AjaxStatus;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import th.co.mediaplex.dooneetv.adapter.MovieAdapter;
+import th.co.mediaplex.dooneetv.obj.Banner;
 import th.co.mediaplex.dooneetv.obj.Movie;
 
 
 public class MainActivity extends Activity {
     private SliderLayout bannerSlider;
     private GridView movieHotGridView,movieAllGridView;
+    private String url = Config.urlApiHome;
+    private AQuery aq;
+    private int i, j;
+    private JSONArray objectArray;
 
    public ArrayList<Movie> movieHotArrayList,movieAllArrayList;
+   public ArrayList<Banner> bannerArratList;
    public MovieAdapter movieHotAdapter,movieAllAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        aq = new AQuery(this);
         bannerSlider = (SliderLayout)findViewById(R.id.bannerSlider);
         movieHotGridView = (GridView)findViewById(R.id.movieHotGridView);
         movieAllGridView = (GridView)findViewById(R.id.movieAllGridView);
         movieAllArrayList = new ArrayList<Movie>();
         movieHotArrayList = new ArrayList<Movie>();
-        movieHotAdapter = new MovieAdapter(this,movieHotArrayList);
-        movieAllAdapter = new MovieAdapter(this,movieAllArrayList);
+        movieHotAdapter = new MovieAdapter(this, movieHotArrayList);
+        movieAllAdapter = new MovieAdapter(this, movieAllArrayList);
         movieHotGridView.setAdapter(movieHotAdapter);
         movieAllGridView.setAdapter(movieAllAdapter);
 
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieAllArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
+        aq.ajax(url, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
+            @Override
+            public void callback(String url, JSONObject object, AjaxStatus status) {
+                if (object != null) {
+                    try {
+                        objectArray = object.getJSONObject("movieHot").getJSONArray("items");
+                        for (i = 0, j = objectArray.length(); i < j; i++) {
+                            movieHotArrayList.add(new Movie(objectArray.getJSONObject(i).getInt("movie_id"), objectArray.getJSONObject(i).getString("cover")));
+                            //findViewById(R.id.statusImageView).setVisibility(View.VISIBLE);
 
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-        movieHotArrayList.add(new Movie(1,"http://www.dooneetv.com/assets/files/2014/d1a34.jpg"));
-
-
-
-        movieAllAdapter.notifyDataSetChanged();
-        movieHotAdapter.notifyDataSetChanged();
-
+//                            Boolean hd = objectArray.getJSONObject(i).getBoolean("is_hd");
+//                            if(hd.equals("YES")) {
+//                                Log.e("title", objectArray.getJSONObject(i).getString("title"));
+//                            }
+                        }
+                        objectArray = object.getJSONObject("movies").getJSONArray("items");
+                        for (i = 0, j = objectArray.length(); i < j; i++) {
+                            movieAllArrayList.add(new Movie(objectArray.getJSONObject(i).getInt("movie_id"), objectArray.getJSONObject(i).getString("cover")));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    movieHotAdapter.notifyDataSetChanged();
+                    movieAllAdapter.notifyDataSetChanged();
+                }
+            }
+        });
         createBannerSlider();
         createMovieHot();
         createMovieAll();
@@ -89,17 +108,49 @@ public class MainActivity extends Activity {
     }
 
     private void createBannerSlider(){
-        TextSliderView textSliderView = new TextSliderView(this);
-        // initialize a SliderLayout
-        textSliderView
-                .description("test")
-                .image(R.drawable.banner_cover)
-                .setScaleType(BaseSliderView.ScaleType.Fit);
+        final TextSliderView textSliderView = new TextSliderView(this);
+        //final ArrayList<HashMap<String, String>> arrayList = new ArrayList<HashMap<String, String>>();
+        final HashMap<String,String> url_maps = new HashMap<String, String>();
+
+        aq.ajax(url, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
+            @Override
+            public void callback(String url, JSONObject object, AjaxStatus status) {
+                if (object != null) {
+                    try {
+                        objectArray = object.getJSONObject("banner").getJSONArray("items");
+                        for (int a = 0, b = objectArray.length(); a < b; a++) {
+                            url_maps.put(objectArray.getJSONObject(a).getString("title"), objectArray.getJSONObject(a).getString("cover"));
+                            //arrayList.add(url_maps);
+                            //Log.e("title", objectArray.getJSONObject(a).getString("title"));
+                            //Log.e("size", String.valueOf(arrayList.size()));
+                            for (String name : url_maps.keySet()) {
+                                textSliderView
+                                        .description(name)
+                                        .image(url_maps.get(name))
+                                        .setScaleType(BaseSliderView.ScaleType.Fit);
+                                textSliderView.getBundle()
+                                        .putString("extra", objectArray.getJSONObject(a).getString("title"));
+                            }
+                            bannerSlider.addSlider(textSliderView);
+                        }
+//                        for (String name : url_maps.keySet()) {
+//                            textSliderView
+//                                .description(name)
+//                                .image(url_maps.get(name))
+//                                .setScaleType(BaseSliderView.ScaleType.Fit);
+//                                textSliderView.getBundle()
+//                                        .putString("extra", name);
+//                        }
+//                        bannerSlider.addSlider(textSliderView);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
         //.setOnSliderClickListener((BaseSliderView.OnSliderClickListener) this);
         //add your extra information
-        textSliderView.getBundle()
-                .putString("extra","test");
-        bannerSlider.addSlider(textSliderView);
         bannerSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         bannerSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         bannerSlider.setCustomAnimation(new DescriptionAnimation());

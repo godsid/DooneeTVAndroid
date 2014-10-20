@@ -16,6 +16,8 @@
         android:layout_centerHorizontal="true"
         android:numColumns="5"
         android:columnWidth="200px"
+        android:verticalSpacing="1dp"
+        android:horizontalSpacing="1dp"
         android:focusable="false"
         android:focusableInTouchMode="false" />
 </RelativeLayout>
