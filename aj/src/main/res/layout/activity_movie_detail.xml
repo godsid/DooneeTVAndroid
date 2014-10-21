@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/bannerImageView"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:minWidth="258px"
         android:minHeight="386px"
         android:src="@android:drawable/ic_menu_gallery" />
@@ -23,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/movie_title"
         android:id="@+id/descriptionTextView"
-        android:layout_toEndOf="@+id/bannerImageView"
+        android:layout_toRightOf="@+id/bannerImageView"
         android:layout_alignTop="@+id/bannerImageView" />
 
     <TextView
@@ -32,7 +31,7 @@
         android:text="@string/movie_description"
         android:id="@+id/movieDescTextView"
         android:layout_below="@+id/descriptionTextView"
-        android:layout_alignStart="@+id/descriptionTextView" />
+        android:layout_alignLeft="@+id/descriptionTextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,7 +39,7 @@
         android:text="@string/movie_score"
         android:id="@+id/scoreTextView"
         android:layout_below="@+id/movieDescTextView"
-        android:layout_alignStart="@+id/movieDescTextView" />
+        android:layout_alignLeft="@+id/movieDescTextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,7 +47,7 @@
         android:text="@string/movie_rating"
         android:id="@+id/ratingTextView"
         android:layout_below="@+id/scoreTextView"
-        android:layout_alignStart="@+id/scoreTextView" />
+        android:layout_alignLeft="@+id/scoreTextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,7 +55,7 @@
         android:text="@string/movie_cast"
         android:id="@+id/castTextView"
         android:layout_below="@+id/ratingTextView"
-        android:layout_toEndOf="@+id/bannerImageView" />
+        android:layout_toRightOf="@+id/bannerImageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +63,7 @@
         android:text="@string/movie_director"
         android:id="@+id/directorTextView"
         android:layout_below="@+id/castTextView"
-        android:layout_alignStart="@+id/castTextView" />
+        android:layout_alignLeft="@+id/castTextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,30 +71,30 @@
         android:text="@string/movie_year"
         android:id="@+id/yearTextView"
         android:layout_below="@+id/directorTextView"
-        android:layout_toEndOf="@+id/bannerImageView" />
+        android:layout_toRightOf="@+id/bannerImageView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/movie_length"
-        android:id="@+id/textView2"
+        android:id="@+id/lengthTextView"
         android:layout_below="@+id/yearTextView"
-        android:layout_toEndOf="@+id/bannerImageView" />
+        android:layout_toRightOf="@+id/bannerImageView" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/playImageView"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:src="@android:drawable/ic_menu_gallery" />
+        android:id="@+id/playImageButton"
+        android:layout_below="@+id/lengthTextView"
+        android:layout_alignLeft="@+id/lengthTextView"
+        android:src="@android:drawable/ic_media_play" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/subscribeImageView"
-        android:layout_below="@+id/textView2"
-        android:layout_toEndOf="@+id/playImageView"
-        android:src="@android:drawable/ic_menu_gallery" />
+        android:id="@+id/subscribeImageButton"
+        android:layout_below="@+id/lengthTextView"
+        android:layout_toRightOf="@+id/playImageButton"
+        android:src="@android:drawable/ic_menu_add" />
 
 </RelativeLayout>

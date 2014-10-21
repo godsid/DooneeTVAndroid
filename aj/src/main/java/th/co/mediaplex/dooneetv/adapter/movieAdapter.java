@@ -47,7 +47,7 @@ public class MovieAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         MovieItemView movieItemView;
         Movie movie = movieArrayList.get(position);
         if(convertView==null){
@@ -55,20 +55,27 @@ public class MovieAdapter extends BaseAdapter{
             movieItemView = new MovieItemView();
             movieItemView.coverImageView =  (ImageView) convertView.findViewById(R.id.bannerImageView);
             movieItemView.progressBar =  (ProgressBar) convertView.findViewById(R.id.progressBar);
+            movieItemView.statusImageView =  (ImageView) convertView.findViewById(R.id.statusImageView);
             convertView.setTag(movieItemView);
         }else{
             movieItemView = (MovieItemView) convertView.getTag();
         }
 
         aq.id(movieItemView.coverImageView)
-          .progress(movieItemView.progressBar)
-          .image(movie.getCover(),true,true,0,0,null,AQuery.FADE_IN_NETWORK,AQuery.RATIO_PRESERVE);
-
+            .progress(movieItemView.progressBar)
+            .image(movie.getCover(), true, true, 0, 0, null, AQuery.FADE_IN_NETWORK, AQuery.RATIO_PRESERVE);
+        if(movieArrayList.get(position).isIs_soon()){
+            aq.id(movieItemView.statusImageView).image(R.drawable.ic_soon);
+        }else if(movieArrayList.get(position).isIs_hd()){
+            aq.id(movieItemView.statusImageView).image(R.drawable.ic_hd);
+        }else if(movieArrayList.get(position).isIs_18()){
+            aq.id(movieItemView.statusImageView).image(R.drawable.ic_18);
+        }
         return convertView;
     }
 }
 
 class MovieItemView{
-    ImageView coverImageView;
+    ImageView coverImageView, statusImageView;
     ProgressBar progressBar;
 }

@@ -254,5 +254,4 @@ public class Movie {
         this.is_18 = is_18;
     }
 
-
 }
