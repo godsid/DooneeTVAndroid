@@ -1,9 +1,16 @@
 package th.co.mediaplex.dooneetv;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 import com.androidquery.AQuery;
@@ -26,14 +33,12 @@ import th.co.mediaplex.dooneetv.obj.Movie;
 
 public class MainActivity extends Activity {
     private SliderLayout bannerSlider;
-    private GridView movieHotGridView,movieAllGridView;
+    private GridView movieAllGridView;
     private String url = Config.urlApiHome;
     private AQuery aq;
-    private int i, j;
+    public ArrayList<Movie> movieAllArrayList;
+    public MovieAdapter movieAllAdapter;
     private JSONArray objectArray;
-
-   public ArrayList<Movie> movieHotArrayList,movieAllArrayList;
-   public MovieAdapter movieHotAdapter,movieAllAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +46,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         aq = new AQuery(this);
         bannerSlider = (SliderLayout)findViewById(R.id.bannerSlider);
-        movieHotGridView = (GridView)findViewById(R.id.movieHotGridView);
         movieAllGridView = (GridView)findViewById(R.id.movieAllGridView);
         movieAllArrayList = new ArrayList<Movie>();
-        movieHotArrayList = new ArrayList<Movie>();
-        movieHotAdapter = new MovieAdapter(this, movieHotArrayList);
         movieAllAdapter = new MovieAdapter(this, movieAllArrayList);
-        movieHotGridView.setAdapter(movieHotAdapter);
         movieAllGridView.setAdapter(movieAllAdapter);
 
         aq.ajax(url, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
@@ -55,18 +56,25 @@ public class MainActivity extends Activity {
             public void callback(String url, JSONObject object, AjaxStatus status) {
                 if (object != null) {
                     try {
-                        objectArray = object.getJSONObject("movieHot").getJSONArray("items");
-                        for (i = 0, j = objectArray.length(); i < j; i++) {
-                            movieHotArrayList.add(new Movie(objectArray.getJSONObject(i)));
-                        }
                         objectArray = object.getJSONObject("movies").getJSONArray("items");
-                        for (i = 0, j = objectArray.length(); i < j; i++) {
+                        for (int i = 0, j = objectArray.length(); i < j; i++) {
                             movieAllArrayList.add(new Movie(objectArray.getJSONObject(i)));
+                            movieAllGridView.setOnItemClickListener(new OnItemClickListener() {
+                                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                                    if(movieAllArrayList.get(position).isIs_18()) {
+                                        showDialog(MainActivity.this, getString(R.string.title_is_18),getString(R.string.message_is_18), movieAllArrayList.get(position));
+                                    }else{
+                                        Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        int movie_id = movieAllArrayList.get(position).getMovie_id();
+                                        intent.putExtra("movie_id", movie_id);
+                                        startActivity(intent);
+                                    }
+                                }
+                            });
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    movieHotAdapter.notifyDataSetChanged();
                     movieAllAdapter.notifyDataSetChanged();
                 }
             }
@@ -105,14 +113,14 @@ public class MainActivity extends Activity {
                 if (object != null) {
                     try {
                         objectArray = object.getJSONObject("banner").getJSONArray("items");
-                        for (int a = 0, b = objectArray.length(); a < b; a++) {
+                        for (int i = 0, j = objectArray.length(); i < j; i++) {
                             TextSliderView textSliderView = new TextSliderView(getBaseContext());
                                 textSliderView
-                                        .description(objectArray.getJSONObject(a).getString("title"))
-                                        .image(objectArray.getJSONObject(a).getString("cover"))
+                                        .description(objectArray.getJSONObject(i).getString("title"))
+                                        .image(objectArray.getJSONObject(i).getString("cover"))
                                         .setScaleType(BaseSliderView.ScaleType.Fit);
                                 textSliderView.getBundle()
-                                        .putString("extra", objectArray.getJSONObject(a).getString("title"));
+                                        .putString("extra", objectArray.getJSONObject(i).getString("title"));
                             bannerSlider.addSlider(textSliderView);
                         }
                     } catch (JSONException e) {
@@ -134,5 +142,27 @@ public class MainActivity extends Activity {
     }
     private void createMovieAll(){
 
+    }
+
+    public static void showDialog(final Context context, String title, String message, final Movie movie) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+        dialog.setTitle(title);
+        dialog.setIcon(R.drawable.ic_launcher);
+        dialog.setCancelable(true);
+        dialog.setMessage(message);
+        dialog.setPositiveButton(context.getString(R.string.alert_yes), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(context, MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                int movie_id = movie.getMovie_id();
+                intent.putExtra("movie_id", movie_id);
+                context.startActivity(intent);
+            }
+        });
+        dialog.setNegativeButton(context.getString(R.string.alert_no), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        dialog.show();
     }
 }

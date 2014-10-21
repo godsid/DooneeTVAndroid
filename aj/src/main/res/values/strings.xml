@@ -30,5 +30,9 @@
     <string name="movie_year">ปี</string>
     <string name="movie_length">ความยาว</string>
     <string name="title_activity_movie">MovieActivity</string>
+    <string name="title_is_18">แจ้งเตือน</string>
+    <string name="message_is_18">ภาพและเนื้อหาต่อไปนี้ ไม่เหมาะสมแก่เด็ก และเยาวชนอายุต่ำกว่า 18 ปี กรุณายืนยันอายุของคุณ</string>
+    <string name="alert_yes">ข้าพเจ้า 18+ แล้ว</string>
+    <string name="alert_no">ยังไม่ถึง 18 ปี</string>
 
 </resources>

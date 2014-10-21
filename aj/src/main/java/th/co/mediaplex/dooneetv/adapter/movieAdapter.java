@@ -1,7 +1,6 @@
 package th.co.mediaplex.dooneetv.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import com.androidquery.AQuery;
 
 import java.util.ArrayList;
 
-import th.co.mediaplex.dooneetv.MovieDetailActivity;
 import th.co.mediaplex.dooneetv.R;
 import th.co.mediaplex.dooneetv.obj.Movie;
 
@@ -65,18 +63,13 @@ public class MovieAdapter extends BaseAdapter{
 
         aq.id(movieItemView.coverImageView)
             .progress(movieItemView.progressBar)
-            .image(movie.getCover(), true, true, 0, 0, null, AQuery.FADE_IN_NETWORK, AQuery.RATIO_PRESERVE)
-            .clicked(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    int movie_id = movieArrayList.get(position).getMovie_id();
-                    intent.putExtra("movie_id", movie_id);
-                    context.startActivity(intent);
-                }
-            });
-        if(movieArrayList.get(position).isIs_hd()){
+            .image(movie.getCover(), true, true, 0, 0, null, AQuery.FADE_IN_NETWORK, AQuery.RATIO_PRESERVE);
+        if(movieArrayList.get(position).isIs_soon()){
+            aq.id(movieItemView.statusImageView).image(R.drawable.ic_soon);
+        }else if(movieArrayList.get(position).isIs_hd()){
             aq.id(movieItemView.statusImageView).image(R.drawable.ic_hd);
+        }else if(movieArrayList.get(position).isIs_18()){
+            aq.id(movieItemView.statusImageView).image(R.drawable.ic_18);
         }
         return convertView;
     }

@@ -18,21 +18,14 @@
     <GridView
         android:layout_width="match_parent"
         android:layout_height="400px"
-        android:id="@+id/movieHotGridView"
+        android:id="@+id/movieAllGridView"
         android:layout_below="@+id/bannerSlider"
         android:layout_centerHorizontal="true"
         android:numColumns="5"
         android:verticalSpacing="1dp"
         android:horizontalSpacing="1dp"
-        android:layout_marginTop="5dp" />
-
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="400px"
-        android:id="@+id/movieAllGridView"
-        android:layout_below="@+id/movieHotGridView"
-        android:layout_centerHorizontal="true"
-        android:numColumns="5"
-        android:verticalSpacing="1dp"
-        android:horizontalSpacing="1dp" />
+        android:layout_marginTop="5dp"
+        android:focusable="true"
+        android:choiceMode="singleChoice"
+        android:listSelector="#68ff1219" />
 </RelativeLayout>
