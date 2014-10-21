@@ -40,7 +40,7 @@ public class SimplePlayerActivity extends Activity implements SurfaceHolder.Call
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
-
+        /*
         rootView = (View)findViewById(R.id.rootView);
         surfaceView = (SurfaceView)findViewById(R.id.videoSurfaceView);
 
@@ -62,7 +62,7 @@ public class SimplePlayerActivity extends Activity implements SurfaceHolder.Call
 
 
 
-        player.setPlayWhenReady(true);
+        player.setPlayWhenReady(true);*/
         /*
         // Invoke the callback.
         //callback.onRenderers(videoRenderer, audioRenderer);

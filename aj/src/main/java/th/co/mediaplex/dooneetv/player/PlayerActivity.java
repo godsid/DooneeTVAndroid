@@ -79,8 +79,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback,
         builder = getRendererBuilder();
 
         setContentView(R.layout.activity_package);
-        View rootView = findViewById(R.id.rootView);
-        /*
+        /*View rootView = findViewById(R.id.rootView);
+
         rootView.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View arg0, MotionEvent arg1) {
@@ -91,12 +91,13 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback,
             }
         });
         */
-
+        /*
         mediaController = new MediaController(this);
         mediaController.setAnchorView(rootView);
         shutterView = findViewById(R.id.shutter);
         surfaceView = (VideoSurfaceView) findViewById(R.id.videoSurfaceView);
         surfaceView.getHolder().addCallback(this);
+        */
     }
 
     @Override

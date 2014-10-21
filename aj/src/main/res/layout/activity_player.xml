@@ -1,10 +1,11 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="th.co.mediaplex.dooneetv.player.PlayerActivity"
     android:keepScreenOn="true"
     android:id="@+id/rootView" >
+
 
     <com.google.android.exoplayer.VideoSurfaceView
         android:id="@+id/videoSurfaceView"
@@ -16,4 +17,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/black"/>
+
+    <com.brightcove.player.view.SeamlessVideoView
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:id="@+id/videoView"
+        android:layout_gravity="left|top" />
 </FrameLayout>
+    -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".PlayerActivity" >
+
+<com.brightcove.player.view.SeamlessVideoView
+    android:id="@+id/videoView"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:layout_gravity="center_horizontal|top"/>
+
+</merge>
