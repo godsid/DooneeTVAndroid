@@ -39,11 +39,17 @@ public class MainActivity extends Activity {
     public ArrayList<Movie> movieAllArrayList;
     public MovieAdapter movieAllAdapter;
     private JSONArray objectArray;
-
+    protected MyApplication myApplication;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myApplication = (MyApplication)getApplication();
+        if(!myApplication.isLogin()){
+            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(intent);
+        }
+
         aq = new AQuery(this);
         bannerSlider = (SliderLayout)findViewById(R.id.bannerSlider);
         movieAllGridView = (GridView)findViewById(R.id.movieAllGridView);

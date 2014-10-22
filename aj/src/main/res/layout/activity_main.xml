@@ -21,11 +21,14 @@
         android:id="@+id/movieAllGridView"
         android:layout_below="@+id/bannerSlider"
         android:layout_centerHorizontal="true"
-        android:numColumns="5"
+        android:numColumns="10"
         android:verticalSpacing="1dp"
         android:horizontalSpacing="1dp"
         android:layout_marginTop="5dp"
         android:focusable="true"
         android:choiceMode="singleChoice"
-        android:listSelector="#68ff1219" />
+        android:listSelector="#68ff1219"
+        android:clickable="true"
+        android:drawSelectorOnTop="true"
+        android:focusableInTouchMode="true" />
 </RelativeLayout>
