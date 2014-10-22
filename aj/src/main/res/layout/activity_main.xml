@@ -12,8 +12,10 @@
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/bannerSlider"
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:focusable="false"
+        android:layout_centerHorizontal="true" />
 
     <GridView
         android:layout_width="match_parent"
@@ -22,8 +24,8 @@
         android:layout_below="@+id/bannerSlider"
         android:layout_centerHorizontal="true"
         android:numColumns="10"
-        android:verticalSpacing="1dp"
-        android:horizontalSpacing="1dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
         android:layout_marginTop="5dp"
         android:focusable="true"
         android:choiceMode="singleChoice"

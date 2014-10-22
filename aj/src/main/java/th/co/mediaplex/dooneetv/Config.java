@@ -13,6 +13,7 @@ public class Config {
     final static public String urlApiMemberRegister = "https://api.doonee.tv/api/member/register";
     final static public String urlApiMemberHistory = "https://api.doonee.tv/api/member/history?member_id={member_id}&page={page}&limit={limit}";
     final static public String urlApiMemberFavorite = "https://api.doonee.tv/api/member/favorite?member_id={member_id}&page={page}&limit={limit}";
+    final static public String urlApiMovies = "https://api.doonee.tv/api/movie?page={page}&limit={limit}";
     final static public String urlApiMovie = "https://api.doonee.tv/api/movie/{movie_id}";
     final static public String urlApiMovieHot = "https://api.doonee.tv/api/movie/hot?page={page}&limit={limit}";
     final static public String urlApiMovieSearch = "https://api.doonee.tv/api/movie/search?q={q}&page={page}&limit={limit}";
