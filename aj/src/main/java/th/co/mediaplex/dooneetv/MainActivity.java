@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,11 +40,17 @@ public class MainActivity extends Activity {
     public ArrayList<Movie> movieAllArrayList;
     public MovieAdapter movieAllAdapter;
     private JSONArray objectArray;
-
+    protected MyApplication myApplication;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myApplication = (MyApplication)getApplication();
+        if(!myApplication.isLogin()){
+            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(intent);
+        }
+
         aq = new AQuery(this);
         bannerSlider = (SliderLayout)findViewById(R.id.bannerSlider);
         movieAllGridView = (GridView)findViewById(R.id.movieAllGridView);
@@ -51,31 +58,39 @@ public class MainActivity extends Activity {
         movieAllAdapter = new MovieAdapter(this, movieAllArrayList);
         movieAllGridView.setAdapter(movieAllAdapter);
 
-        aq.ajax(url, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
+        movieAllGridView.requestFocus();
+
+        movieAllGridView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                if(movieAllArrayList.get(position).isIs_18()) {
+                    showDialog(MainActivity.this, getString(R.string.title_is_18),getString(R.string.message_is_18), movieAllArrayList.get(position));
+                }else{
+                    Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    int movie_id = movieAllArrayList.get(position).getMovie_id();
+                    intent.putExtra("movie_id", movie_id);
+                    startActivity(intent);
+                }
+            }
+        });
+        String movieUrl = Config.urlApiMovies
+                                .replace("{page}", "1")
+                                .replace("{limit}", "30");
+        Log.d(Config.TAG, movieUrl);
+        aq.ajax(movieUrl, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {
                 if (object != null) {
+                    Log.d(Config.TAG,object.toString());
                     try {
-                        objectArray = object.getJSONObject("movies").getJSONArray("items");
+                        objectArray = object.getJSONArray("items");
                         for (int i = 0, j = objectArray.length(); i < j; i++) {
                             movieAllArrayList.add(new Movie(objectArray.getJSONObject(i)));
-                            movieAllGridView.setOnItemClickListener(new OnItemClickListener() {
-                                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                                    if(movieAllArrayList.get(position).isIs_18()) {
-                                        showDialog(MainActivity.this, getString(R.string.title_is_18),getString(R.string.message_is_18), movieAllArrayList.get(position));
-                                    }else{
-                                        Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        int movie_id = movieAllArrayList.get(position).getMovie_id();
-                                        intent.putExtra("movie_id", movie_id);
-                                        startActivity(intent);
-                                    }
-                                }
-                            });
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     movieAllAdapter.notifyDataSetChanged();
+                    movieAllGridView.setSelection(0);
                 }
             }
         });

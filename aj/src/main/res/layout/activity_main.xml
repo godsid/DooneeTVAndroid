@@ -12,8 +12,10 @@
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/bannerSlider"
-        android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:focusable="false"
+        android:layout_centerHorizontal="true" />
 
     <GridView
         android:layout_width="match_parent"
@@ -21,11 +23,14 @@
         android:id="@+id/movieAllGridView"
         android:layout_below="@+id/bannerSlider"
         android:layout_centerHorizontal="true"
-        android:numColumns="5"
-        android:verticalSpacing="1dp"
-        android:horizontalSpacing="1dp"
+        android:numColumns="10"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
         android:layout_marginTop="5dp"
         android:focusable="true"
         android:choiceMode="singleChoice"
-        android:listSelector="#68ff1219" />
+        android:listSelector="#68ff1219"
+        android:clickable="true"
+        android:drawSelectorOnTop="true"
+        android:focusableInTouchMode="true" />
 </RelativeLayout>

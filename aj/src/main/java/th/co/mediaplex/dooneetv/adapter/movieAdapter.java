@@ -64,11 +64,11 @@ public class MovieAdapter extends BaseAdapter{
         aq.id(movieItemView.coverImageView)
             .progress(movieItemView.progressBar)
             .image(movie.getCover(), true, true, 0, 0, null, AQuery.FADE_IN_NETWORK, AQuery.RATIO_PRESERVE);
-        if(movieArrayList.get(position).isIs_soon()){
+        if(movie.isIs_soon()){
             aq.id(movieItemView.statusImageView).image(R.drawable.ic_soon);
-        }else if(movieArrayList.get(position).isIs_hd()){
+        }else if(movie.isIs_hd()){
             aq.id(movieItemView.statusImageView).image(R.drawable.ic_hd);
-        }else if(movieArrayList.get(position).isIs_18()){
+        }else if(movie.isIs_18()){
             aq.id(movieItemView.statusImageView).image(R.drawable.ic_18);
         }
         return convertView;
