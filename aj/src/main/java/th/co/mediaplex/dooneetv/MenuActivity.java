@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by silk on 20-Oct-14.
  */
-public class MenuActivity extends Activity {
+public class MenuActivity extends Activity implements SearchView.OnQueryTextListener{
     private SearchView mSearchView;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class MenuActivity extends Activity {
             mSearchView.setSearchableInfo(info);
         }
 
-        mSearchView.setOnQueryTextListener((SearchView.OnQueryTextListener) MenuActivity.this);
+        mSearchView.setOnQueryTextListener(this);
     }
 
     public boolean onQueryTextChange(String newText) {
