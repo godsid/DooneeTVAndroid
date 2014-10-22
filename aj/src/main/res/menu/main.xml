@@ -4,24 +4,20 @@
     <item android:id="@+id/action_profile"
         android:title="@string/action_profile"
         android:orderInCategory="300"
-        android:showAsAction="ifRoom|withText"
-        android:icon="@android:drawable/ic_dialog_info"/>
+        android:showAsAction="ifRoom|withText" />
 
     <item android:id="@+id/action_search"
         android:title="@string/action_search"
-        android:orderInCategory="200"
+        android:orderInCategory="100"
         android:showAsAction="ifRoom|withText"
         android:icon="@android:drawable/ic_menu_search"
         android:actionViewClass="android.widget.SearchView" />
 
-    <item android:id="@+id/action_category"
-        android:title="@string/action_category"
-        android:orderInCategory="100"
+    <item
+        android:id="@+id/action_category"
         android:showAsAction="ifRoom|withText"
+        android:title="Category"
+        android:orderInCategory="200"
+        android:actionViewClass="android.widget.Spinner"
         android:icon="@android:drawable/ic_dialog_dialer"/>
-
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="400"
-        android:showAsAction="ifRoom|withText"/>
 </menu>

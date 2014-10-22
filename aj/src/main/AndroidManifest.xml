@@ -83,7 +83,10 @@
             android:name=".PaymentPrepaidCardActivity"
             android:label="@string/title_activity_payment_prepaid_card" >
         </activity>
-        <activity android:name=".MenuActivity"></activity>
+        <activity
+            android:name=".CategoryActivity"
+            android:label="@string/action_category">
+        </activity>
     </application>
 
 </manifest>

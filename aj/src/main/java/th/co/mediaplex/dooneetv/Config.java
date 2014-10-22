@@ -15,9 +15,9 @@ public class Config {
     final static public String urlApiMemberFavorite = "https://api.doonee.tv/api/member/favorite?member_id={member_id}&page={page}&limit={limit}";
     final static public String urlApiMovie = "https://api.doonee.tv/api/movie/{movie_id}";
     final static public String urlApiMovieHot = "https://api.doonee.tv/api/movie/hot?page={page}&limit={limit}";
-    final static public String urlApiMovieSearch = "https://api.doonee.tv/api/movie/search?q={q}&page={page}&limit={limit}";
+    final static public String urlApiMovieSearch = "https://api.doonee.tv/api/movie/search?q={q}&page={page}&limit=30";
     final static public String urlApiMovieSuggestion = "https://api.doonee.tv/api/movie/suggestion?q={q}&page={page}&limit={limit}";
-    final static public String urlApiMovieCategory = "https://api.doonee.tv/api/movie/category/{category_id}?page={page}&limit={limit}";
+    final static public String urlApiMovieCategory = "https://api.doonee.tv/api/movie/category/{category_id}?page={page}&limit=30";
 
     final static public long defaultCache = 600;
 
