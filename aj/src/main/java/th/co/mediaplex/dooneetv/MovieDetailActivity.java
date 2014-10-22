@@ -31,8 +31,8 @@ public class MovieDetailActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
-        coverImageView = (ImageView)findViewById(R.id.coverImageView);
-        txt_movie_title = (TextView)findViewById(R.id.titleTextView);
+        coverImageView = (ImageView)findViewById(R.id.bannerImageView);
+        txt_movie_title = (TextView)findViewById(R.id.descriptionTextView);
         txt_movie_description = (TextView)findViewById(R.id.movieDescTextView);
         txt_movie_score = (TextView)findViewById(R.id.scoreTextView);
         txt_movie_rating = (TextView)findViewById(R.id.ratingTextView);

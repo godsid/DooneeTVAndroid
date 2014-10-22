@@ -1,13 +1,10 @@
 package th.co.mediaplex.dooneetv;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -31,7 +28,7 @@ import th.co.mediaplex.dooneetv.adapter.MovieAdapter;
 import th.co.mediaplex.dooneetv.obj.Movie;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends MenuActivity {
     private SliderLayout bannerSlider;
     private GridView movieAllGridView;
     private String url = Config.urlApiHome;
@@ -82,28 +79,6 @@ public class MainActivity extends Activity {
         createBannerSlider();
         createMovieHot();
         createMovieAll();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private void createBannerSlider(){

@@ -3,7 +3,7 @@
 
     <string name="app_name">doo</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Setting</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
@@ -66,5 +66,9 @@
     <string name="message_is_18">ภาพและเนื้อหาต่อไปนี้ ไม่เหมาะสมแก่เด็ก และเยาวชนอายุต่ำกว่า 18 ปี กรุณายืนยันอายุของคุณ</string>
     <string name="alert_yes">ข้าพเจ้า 18+ แล้ว</string>
     <string name="alert_no">ยังไม่ถึง 18 ปี</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_search">Search</string>
+    <string name="action_category">Category</string>
+
 
 </resources>
