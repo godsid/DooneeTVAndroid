@@ -16,8 +16,9 @@
     <item
         android:id="@+id/action_category"
         android:showAsAction="ifRoom|withText"
-        android:title="Category"
+        android:title="@string/action_category"
         android:orderInCategory="200"
-        android:actionViewClass="android.widget.Spinner"
-        android:icon="@android:drawable/ic_dialog_dialer"/>
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:actionViewClass="android.widget.Spinner"/>
+
 </menu>

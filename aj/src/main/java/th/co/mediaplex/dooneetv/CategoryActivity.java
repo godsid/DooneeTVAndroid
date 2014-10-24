@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -32,12 +33,14 @@ public class CategoryActivity extends Activity {
     private GridView categoryGridView;
     private ArrayList<Movie> categoryArrayList;
     private MovieAdapter categoryAdapter;
+    private TextView movieZero;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
         aq = new AQuery(this);
+        movieZero = (TextView)findViewById(R.id.movieZero);
         categoryGridView = (GridView)findViewById(R.id.movieGridView);
         categoryArrayList = new ArrayList<Movie>();
         categoryAdapter = new MovieAdapter(this, categoryArrayList);
@@ -54,21 +57,28 @@ public class CategoryActivity extends Activity {
                 if (object != null) {
                     try {
                         page = page + 1;
-                        JSONArray objectArray = object.getJSONArray("items");
-                        for (int i = 0, j = objectArray.length(); i < j; i++) {
-                            categoryArrayList.add(new Movie(objectArray.getJSONObject(i)));
-                            categoryGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                                    if(categoryArrayList.get(position).isIs_18()) {
-                                        showDialog(CategoryActivity.this, getString(R.string.title_is_18),getString(R.string.message_is_18), categoryArrayList.get(position));
-                                    }else{
-                                        Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        int movie_id = categoryArrayList.get(position).getMovie_id();
-                                        intent.putExtra("movie_id", movie_id);
-                                        startActivity(intent);
+                        JSONObject jsonObject = object.getJSONObject("pageing");
+                        int allItem = jsonObject.getInt("allItem");
+                        if(allItem == 0) {
+                            movieZero.setVisibility(View.VISIBLE);
+                            movieZero.setText(getString(R.string.movie_zero));
+                        }else {
+                            JSONArray objectArray = object.getJSONArray("items");
+                            for (int i = 0, j = objectArray.length(); i < j; i++) {
+                                categoryArrayList.add(new Movie(objectArray.getJSONObject(i)));
+                                categoryGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                                        if (categoryArrayList.get(position).isIs_18()) {
+                                            showDialog(CategoryActivity.this, getString(R.string.title_is_18), getString(R.string.message_is_18), categoryArrayList.get(position));
+                                        } else {
+                                            Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            int movie_id = categoryArrayList.get(position).getMovie_id();
+                                            intent.putExtra("movie_id", movie_id);
+                                            startActivity(intent);
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
