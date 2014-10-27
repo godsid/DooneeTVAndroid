@@ -62,8 +62,8 @@ public class PackageAdapter extends BaseAdapter{
         }
 
         aq.id(packageItemView.bannerImageView)
-          .progress(packageItemView.progressBar)
-          .image(movieMoviePackage.getBanner(), true, true, 0, 0, null,AQuery.FADE_IN, AQuery.RATIO_PRESERVE);
+                .progress(packageItemView.progressBar)
+                .image(movieMoviePackage.getBanner(), true, true, 0, 0, null,AQuery.FADE_IN, AQuery.RATIO_PRESERVE);
         return convertView;
     }
 }
@@ -72,3 +72,4 @@ class PackageItemView{
     ImageView bannerImageView;
     ProgressBar progressBar;
 }
+

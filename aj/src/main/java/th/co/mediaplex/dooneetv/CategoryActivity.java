@@ -24,15 +24,16 @@ import java.util.ArrayList;
 import th.co.mediaplex.dooneetv.adapter.MovieAdapter;
 import th.co.mediaplex.dooneetv.obj.Movie;
 
-
-public class MovieActivity extends Activity {
+/**
+ * Created by silk on 22-Oct-14.
+ */
+public class CategoryActivity extends Activity {
     private AQuery aq;
     private int page;
-    private GridView movieGridView;
-    private ArrayList<Movie> movieArrayList;
-    private MovieAdapter movieAdapter;
+    private GridView categoryGridView;
+    private ArrayList<Movie> categoryArrayList;
+    private MovieAdapter categoryAdapter;
     private TextView movieZero;
-    private String search;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +41,15 @@ public class MovieActivity extends Activity {
 
         aq = new AQuery(this);
         movieZero = (TextView)findViewById(R.id.movieZero);
-        movieGridView = (GridView)findViewById(R.id.movieGridView);
-        movieArrayList = new ArrayList<Movie>();
-        movieAdapter = new MovieAdapter(this, movieArrayList);
-        movieGridView.setAdapter(movieAdapter);
-        Intent intentSearch = getIntent();
-        search = intentSearch.getStringExtra("Search");
+        categoryGridView = (GridView)findViewById(R.id.movieGridView);
+        categoryArrayList = new ArrayList<Movie>();
+        categoryAdapter = new MovieAdapter(this, categoryArrayList);
+        categoryGridView.setAdapter(categoryAdapter);
+        Intent intent = getIntent();
+        int category_id = intent.getIntExtra("category_id", 0);
 
-        String url = Config.urlApiMovieSearch
-                .replace("{q}", search)
+        String url = Config.urlApiMovieCategory
+                .replace("{category_id}", String.valueOf(category_id))
                 .replace("{page}", String.valueOf(page));
         aq.ajax(url, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
             @Override
@@ -60,18 +61,18 @@ public class MovieActivity extends Activity {
                         int allItem = jsonObject.getInt("allItem");
                         if(allItem == 0) {
                             movieZero.setVisibility(View.VISIBLE);
-                            movieZero.setText((getString(R.string.movie_zero)));
+                            movieZero.setText(getString(R.string.movie_zero));
                         }else {
                             JSONArray objectArray = object.getJSONArray("items");
                             for (int i = 0, j = objectArray.length(); i < j; i++) {
-                                movieArrayList.add(new Movie(objectArray.getJSONObject(i)));
-                                movieGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                categoryArrayList.add(new Movie(objectArray.getJSONObject(i)));
+                                categoryGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                                        if (movieArrayList.get(position).isIs_18()) {
-                                            showDialog(MovieActivity.this, getString(R.string.title_is_18), getString(R.string.message_is_18), movieArrayList.get(position));
+                                        if (categoryArrayList.get(position).isIs_18()) {
+                                            showDialog(CategoryActivity.this, getString(R.string.title_is_18), getString(R.string.message_is_18), categoryArrayList.get(position));
                                         } else {
                                             Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            int movie_id = movieArrayList.get(position).getMovie_id();
+                                            int movie_id = categoryArrayList.get(position).getMovie_id();
                                             intent.putExtra("movie_id", movie_id);
                                             startActivity(intent);
                                         }
@@ -82,7 +83,7 @@ public class MovieActivity extends Activity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    movieAdapter.notifyDataSetChanged();
+                    categoryAdapter.notifyDataSetChanged();
                 }
             }
         });
