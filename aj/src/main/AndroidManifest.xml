@@ -87,6 +87,9 @@
             android:name=".CategoryActivity"
             android:label="@string/action_category">
         </activity>
+        <intent-filter>
+            <action android:name="android.intent.action.SEARCH" />
+        </intent-filter>
     </application>
 
 </manifest>

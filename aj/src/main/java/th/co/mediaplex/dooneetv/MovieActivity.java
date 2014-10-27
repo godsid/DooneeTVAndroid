@@ -40,8 +40,8 @@ public class MovieActivity extends Activity {
         movieArrayList = new ArrayList<Movie>();
         movieAdapter = new MovieAdapter(this, movieArrayList);
         movieGridView.setAdapter(movieAdapter);
-        Intent intent = getIntent();
-        String q = null;
+        Intent intentSearch = getIntent();
+        String q = intentSearch.getStringExtra("Search");
 
         String url = Config.urlApiMovieSearch
                 .replace("{q}", q)

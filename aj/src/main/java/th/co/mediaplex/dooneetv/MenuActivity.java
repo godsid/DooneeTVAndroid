@@ -1,11 +1,9 @@
 package th.co.mediaplex.dooneetv;
 
 import android.app.Activity;
-import android.app.SearchManager;
-import android.app.SearchableInfo;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -25,13 +24,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import th.co.mediaplex.dooneetv.obj.Category;
 
 /**
  * Created by silk on 20-Oct-14.
  */
+//public class MenuActivity extends Activity{
 public class MenuActivity extends Activity implements SearchView.OnQueryTextListener {
     private SearchView mSearchView;
     private AQuery aq;
@@ -58,8 +57,8 @@ public class MenuActivity extends Activity implements SearchView.OnQueryTextList
         categorySpinner = menu.findItem(R.id.action_category);
         setupSpinner(categorySpinner);
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        mSearchView = (SearchView) searchItem.getActionView();
-        setupSearchView(searchItem);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
         return true;
     }
 
@@ -75,48 +74,22 @@ public class MenuActivity extends Activity implements SearchView.OnQueryTextList
     return super.onOptionsItemSelected(item);
     }
 
-    private void setupSearchView(MenuItem searchItem) {
-
-        if (isAlwaysExpanded()) {
-            mSearchView.setIconifiedByDefault(false);
-        } else {
-            searchItem.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-        }
-
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        if (searchManager != null) {
-            List<SearchableInfo> searchables = searchManager.getSearchablesInGlobalSearch();
-
-            SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
-            for (SearchableInfo inf : searchables) {
-                if (inf.getSuggestAuthority() != null && inf.getSuggestAuthority().startsWith("applications")) {
-                    info = inf;
-                }
-            }
-            mSearchView.setSearchableInfo(info);
-        }
-
-        mSearchView.setOnQueryTextListener(this);
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return super.onPrepareOptionsMenu(menu);
     }
 
+    //The following callbacks are called for the SearchView.OnQueryChangeListener
     public boolean onQueryTextChange(String newText) {
-        searchTextView.setText("Query = " + newText);
-
-        return false;
+        return true;
     }
 
     public boolean onQueryTextSubmit(String query) {
-        searchTextView.setText("Query = " + query + " : submitted");
-        return false;
-    }
-
-    public boolean onClose() {
-        searchTextView.setText("Closed!");
-        return false;
-    }
-
-    protected boolean isAlwaysExpanded() {
-        return false;
+        Toast.makeText(this, "Searching for: " + query + "...", Toast.LENGTH_SHORT).show();
+        Intent intentSearch = new Intent(this, MovieActivity.class);
+        intentSearch.putExtra("Search", query);
+        startActivity(intentSearch);
+        return true;
     }
 
     public void Category(){
