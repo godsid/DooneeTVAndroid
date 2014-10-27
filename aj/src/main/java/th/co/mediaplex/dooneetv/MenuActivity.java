@@ -45,8 +45,6 @@ public class MenuActivity extends Activity implements SearchView.OnQueryTextList
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 
-        setContentView(R.layout.activity_menu);
-        searchTextView = (TextView)findViewById(R.id.textView);
         aq = new AQuery(this);
         Category();
     }
@@ -54,8 +52,10 @@ public class MenuActivity extends Activity implements SearchView.OnQueryTextList
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
+
         categorySpinner = menu.findItem(R.id.action_category);
         setupSpinner(categorySpinner);
+
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(this);
@@ -66,7 +66,7 @@ public class MenuActivity extends Activity implements SearchView.OnQueryTextList
     switch(item.getItemId()){
         case R.id.action_search:
             return true;
-        case R.id.action_settings:
+        case R.id.action_profile:
             return true;
         case R.id.action_category:
             return true;

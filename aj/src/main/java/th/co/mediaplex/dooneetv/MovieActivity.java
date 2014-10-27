@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -30,21 +31,24 @@ public class MovieActivity extends Activity {
     private GridView movieGridView;
     private ArrayList<Movie> movieArrayList;
     private MovieAdapter movieAdapter;
+    private TextView movieZero;
+    private String search;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
         aq = new AQuery(this);
+        movieZero = (TextView)findViewById(R.id.movieZero);
         movieGridView = (GridView)findViewById(R.id.movieGridView);
         movieArrayList = new ArrayList<Movie>();
         movieAdapter = new MovieAdapter(this, movieArrayList);
         movieGridView.setAdapter(movieAdapter);
         Intent intentSearch = getIntent();
-        String q = intentSearch.getStringExtra("Search");
+        search = intentSearch.getStringExtra("Search");
 
         String url = Config.urlApiMovieSearch
-                .replace("{q}", q)
+                .replace("{q}", search)
                 .replace("{page}", String.valueOf(page));
         aq.ajax(url, JSONObject.class, 3600, new AjaxCallback<JSONObject>() {
             @Override
@@ -52,21 +56,28 @@ public class MovieActivity extends Activity {
                 if (object != null) {
                     try {
                         page = page + 1;
-                        JSONArray objectArray = object.getJSONArray("items");
-                        for (int i = 0, j = objectArray.length(); i < j; i++) {
-                            movieArrayList.add(new Movie(objectArray.getJSONObject(i)));
-                            movieGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                                    if(movieArrayList.get(position).isIs_18()) {
-                                        showDialog(MovieActivity.this, getString(R.string.title_is_18),getString(R.string.message_is_18), movieArrayList.get(position));
-                                    }else{
-                                        Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        int movie_id = movieArrayList.get(position).getMovie_id();
-                                        intent.putExtra("movie_id", movie_id);
-                                        startActivity(intent);
+                        JSONObject jsonObject = object.getJSONObject("pageing");
+                        int allItem = jsonObject.getInt("allItem");
+                        if(allItem == 0) {
+                            movieZero.setVisibility(View.VISIBLE);
+                            movieZero.setText((getString(R.string.movie_zero)));
+                        }else {
+                            JSONArray objectArray = object.getJSONArray("items");
+                            for (int i = 0, j = objectArray.length(); i < j; i++) {
+                                movieArrayList.add(new Movie(objectArray.getJSONObject(i)));
+                                movieGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                                        if (movieArrayList.get(position).isIs_18()) {
+                                            showDialog(MovieActivity.this, getString(R.string.title_is_18), getString(R.string.message_is_18), movieArrayList.get(position));
+                                        } else {
+                                            Intent intent = new Intent(getBaseContext(), MovieDetailActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            int movie_id = movieArrayList.get(position).getMovie_id();
+                                            intent.putExtra("movie_id", movie_id);
+                                            startActivity(intent);
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
