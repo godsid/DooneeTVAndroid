@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
@@ -30,16 +29,12 @@ import th.co.mediaplex.dooneetv.obj.Category;
 /**
  * Created by silk on 20-Oct-14.
  */
-//public class MenuActivity extends Activity{
 public class MenuActivity extends Activity implements SearchView.OnQueryTextListener {
-    private SearchView mSearchView;
     private AQuery aq;
     private ArrayAdapter<String> adapter;
     private ArrayList<Category> categoryArray = new ArrayList<Category>();
     private ArrayList<String> categoryTitle = new ArrayList<String>();
     private MenuItem categorySpinner;
-    private TextView searchTextView;
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +113,6 @@ public class MenuActivity extends Activity implements SearchView.OnQueryTextList
     }
 
     private void setupSpinner(MenuItem item) {
-
         View view = item.getActionView();
         if (view instanceof Spinner) {
             final Spinner spinner = (Spinner) view;
