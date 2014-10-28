@@ -36,8 +36,10 @@ import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
 import com.google.android.exoplayer.MediaCodecTrackRenderer.DecoderInitializationException;
 import com.google.android.exoplayer.MediaCodecVideoTrackRenderer;
 import com.google.android.exoplayer.VideoSurfaceView;
-import com.google.android.exoplayer.demo.R;
+import th.co.mediaplex.dooneetv.R;
 import com.google.android.exoplayer.util.PlayerControl;
+
+import th.co.mediaplex.dooneetv.DemoUtil;
 
 /**
  * An activity that plays media using {@link com.google.android.exoplayer.ExoPlayer}.
@@ -89,13 +91,13 @@ public class SimplePlayerActivity extends Activity implements SurfaceHolder.Call
 
     Intent intent = getIntent();
     contentUri = intent.getData();
-    contentType = intent.getIntExtra(com.google.android.exoplayer.demo.DemoUtil.CONTENT_TYPE_EXTRA, TYPE_OTHER);
-    contentId = intent.getStringExtra(com.google.android.exoplayer.demo.DemoUtil.CONTENT_ID_EXTRA);
+    contentType = intent.getIntExtra(DemoUtil.CONTENT_TYPE_EXTRA, TYPE_OTHER);
+    contentId = intent.getStringExtra(DemoUtil.CONTENT_ID_EXTRA);
 
     mainHandler = new Handler(getMainLooper());
     builder = getRendererBuilder();
 
-    setContentView(R.layout.player_activity_simple);
+    setContentView(R.layout.activity_player);
     View root = findViewById(R.id.root);
     root.setOnTouchListener(new OnTouchListener() {
       @Override
@@ -160,7 +162,7 @@ public class SimplePlayerActivity extends Activity implements SurfaceHolder.Call
   }
 
   private RendererBuilder getRendererBuilder() {
-    String userAgent = com.google.android.exoplayer.demo.DemoUtil.getUserAgent(this);
+    String userAgent = DemoUtil.getUserAgent(this);
     switch (contentType) {
       case TYPE_SS_VOD:
         return new SmoothStreamingRendererBuilder(this, userAgent, contentUri.toString(),

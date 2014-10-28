@@ -65,7 +65,10 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback, 
         super.onCreate(savedInstanceState);
 
         //Intent intent = getIntent();
-        contentUri = Uri.parse("http://122.155.197.142:1935/vod/mp4:sample.mp4/playlist.m3u8");//intent.getData();
+        //series/7fd3cccafdth720/7fd3cccafdth720.m3u8?m=JiZLh_MfVhb77lon0koD4A&e=1414545475
+        String demoSD = "http://122.155.197.142:1935/vod/mp4:sample.mp4/playlist.m3u8";
+        String demoHD = "http://122.155.197.142:1935/vod/_definst_/mp4:series/7fd3cccafdth720.mp4/playlist.m3u8";
+        contentUri = Uri.parse(demoHD);//intent.getData();
         contentType = DemoUtil.TYPE_HLS; //intent.getIntExtra(DemoUtil.CONTENT_TYPE_EXTRA, DemoUtil.TYPE_OTHER);
         contentId = "uid:misc:bipbop-adaptive";//intent.getStringExtra(DemoUtil.CONTENT_ID_EXTRA);
 

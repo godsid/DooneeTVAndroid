@@ -26,7 +26,8 @@ import com.google.android.exoplayer.chunk.ChunkSource;
 import com.google.android.exoplayer.chunk.Format;
 import com.google.android.exoplayer.chunk.FormatEvaluator;
 import com.google.android.exoplayer.chunk.FormatEvaluator.AdaptiveEvaluator;
-import com.google.android.exoplayer.dash.DashChunkSource;
+import com.google.android.exoplayer.dash.DashMp4ChunkSource;
+//import com.google.android.exoplayer.chunk.ChunkSource;
 import com.google.android.exoplayer.dash.mpd.AdaptationSet;
 import com.google.android.exoplayer.dash.mpd.MediaPresentationDescription;
 import com.google.android.exoplayer.dash.mpd.MediaPresentationDescriptionFetcher;
@@ -115,7 +116,7 @@ class DashVodRendererBuilder implements PlayerActivity.RendererBuilder,
 
     // Build the video renderer.
     DataSource videoDataSource = new HttpDataSource(userAgent, null, bandwidthMeter);
-    ChunkSource videoChunkSource = new DashChunkSource(videoDataSource,
+    ChunkSource videoChunkSource = new DashMp4ChunkSource(videoDataSource,
         new AdaptiveEvaluator(bandwidthMeter), videoRepresentations);
     ChunkSampleSource videoSampleSource = new ChunkSampleSource(videoChunkSource, loadControl,
         VIDEO_BUFFER_SEGMENTS * BUFFER_SEGMENT_SIZE, true);
@@ -124,7 +125,7 @@ class DashVodRendererBuilder implements PlayerActivity.RendererBuilder,
 
     // Build the audio renderer.
     DataSource audioDataSource = new HttpDataSource(userAgent, null, bandwidthMeter);
-    ChunkSource audioChunkSource = new DashChunkSource(audioDataSource,
+    ChunkSource audioChunkSource = new DashMp4ChunkSource(audioDataSource,
         new FormatEvaluator.FixedEvaluator(), audioRepresentation);
     SampleSource audioSampleSource = new ChunkSampleSource(audioChunkSource, loadControl,
         AUDIO_BUFFER_SEGMENTS * BUFFER_SEGMENT_SIZE, true);

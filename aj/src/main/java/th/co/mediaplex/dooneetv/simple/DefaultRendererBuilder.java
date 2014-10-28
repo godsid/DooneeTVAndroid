@@ -21,8 +21,8 @@ import android.net.Uri;
 import com.google.android.exoplayer.FrameworkSampleSource;
 import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
 import com.google.android.exoplayer.MediaCodecVideoTrackRenderer;
-import com.google.android.exoplayer.demo.simple.SimplePlayerActivity.RendererBuilder;
-import com.google.android.exoplayer.demo.simple.SimplePlayerActivity.RendererBuilderCallback;
+import th.co.mediaplex.dooneetv.simple.SimplePlayerActivity.RendererBuilder;
+import th.co.mediaplex.dooneetv.simple.SimplePlayerActivity.RendererBuilderCallback;
 
 /**
  * A {@link RendererBuilder} for streams that can be read using

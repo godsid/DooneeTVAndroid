@@ -23,7 +23,7 @@
 
     <style name="ButtonBarButton" />
 
-    <style name="PlayerTheme" parent="@style/AppTheme">
+    <style name="PlayerTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/black</item>
     </style>

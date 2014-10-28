@@ -22,6 +22,7 @@ import com.google.android.exoplayer.VideoSurfaceView;
 import com.google.android.exoplayer.util.PlayerControl;
 
 import th.co.mediaplex.dooneetv.Config;
+import th.co.mediaplex.dooneetv.DemoUtil;
 import th.co.mediaplex.dooneetv.R;
 
 
