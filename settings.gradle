@@ -1,1 +1,1 @@
-include ':mobile', ':tv', ':aj'
+include ':mobile', ':tv', ':aj',':ExoPlayer-hls'
