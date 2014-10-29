@@ -23,7 +23,7 @@
         android:id="@+id/movieAllGridView"
         android:layout_below="@+id/bannerSlider"
         android:layout_centerHorizontal="true"
-        android:numColumns="10"
+        android:numColumns="5"
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
         android:layout_marginTop="5dp"

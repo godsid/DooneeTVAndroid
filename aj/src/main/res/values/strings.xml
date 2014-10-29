@@ -71,4 +71,21 @@
     <string name="action_category">Category</string>
     <string name="movie_zero">ค้นพบ 0 เรื่อง</string>
 
+
+    <string name="video">Video</string>
+    <string name="audio">Audio</string>
+    <string name="text">Text</string>
+    <string name="logging">Logging</string>
+    <string name="logging_normal">Normal</string>
+    <string name="logging_verbose">Verbose</string>
+    <string name="retry">Retry</string>
+    <string name="off">[off]</string>
+    <string name="on">[on]</string>
+    <string name="drm_not_supported">Protected content not supported on API levels below 18</string>
+    <string name="failed">Playback failed</string>
+    <string name="title_activity_test_case">TestCaseActivity</string>
+    <string name="test_running">Test Running...</string>
+    <string name="enable_background_audio">Play in background</string>
+
+    <string name="error_missing_movie">ไม่สามารถเล่นวีดีโอนี้ได้</string>
 </resources>

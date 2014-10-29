@@ -5,6 +5,7 @@
     <!-- <supports-screens android:requiresSmallestWidthDp="600" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- Access Storage -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -21,7 +22,7 @@
         android:name="th.co.mediaplex.dooneetv.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
@@ -36,6 +37,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".MovieDetailActivity"
@@ -44,10 +46,6 @@
         <activity
             android:name=".PackageActivity"
             android:label="@string/title_activity_package" >
-        </activity>
-        <activity
-            android:name=".PlayerActivity"
-            android:label="@string/title_activity_player" >
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -87,9 +85,13 @@
             android:name=".CategoryActivity"
             android:label="@string/action_category">
         </activity>
-        <intent-filter>
-            <action android:name="android.intent.action.SEARCH" />
-        </intent-filter>
+        <activity
+            android:name="th.co.mediaplex.dooneetv.PlayerActivity"
+            android:label="@string/title_activity_player"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize|keyboardHidden"
+            android:theme="@style/PlayerTheme">
+        </activity>
     </application>
 
 </manifest>

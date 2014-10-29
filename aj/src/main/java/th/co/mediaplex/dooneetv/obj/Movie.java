@@ -254,4 +254,12 @@ public class Movie {
         this.is_18 = is_18;
     }
 
+
+    public String getMoviePath(){
+        if(is_series){
+            return "series/"+path+"th480.mp4";
+        }else{
+            return "movies/"+path+"th480.mp4";
+        }
+    }
 }

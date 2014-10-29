@@ -47,7 +47,7 @@ public class MovieAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         MovieItemView movieItemView;
         Movie movie = movieArrayList.get(position);
         if(convertView==null){
@@ -56,6 +56,7 @@ public class MovieAdapter extends BaseAdapter{
             movieItemView.coverImageView =  (ImageView) convertView.findViewById(R.id.bannerImageView);
             movieItemView.progressBar =  (ProgressBar) convertView.findViewById(R.id.progressBar);
             movieItemView.statusImageView =  (ImageView) convertView.findViewById(R.id.statusImageView);
+            
             convertView.setTag(movieItemView);
         }else{
             movieItemView = (MovieItemView) convertView.getTag();

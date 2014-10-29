@@ -18,6 +18,8 @@ import com.androidquery.callback.AjaxStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import th.co.mediaplex.dooneetv.obj.Movie;
+
 
 public class MovieDetailActivity extends Activity {
     private ImageView coverImageView;
@@ -25,6 +27,7 @@ public class MovieDetailActivity extends Activity {
     private ImageButton playImageButton, subscribeImageButton;
     private AQuery aq;
     private int movie_id;
+    private Movie movie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class MovieDetailActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), PlayerActivity.class);
+                intent.putExtra("movie_id",movie.getMovie_id());
+                intent.putExtra("movie_path",movie.getMoviePath());
                 startActivity(intent);
             }
         });
@@ -76,6 +81,7 @@ public class MovieDetailActivity extends Activity {
                         aq.id(txt_movie_year).text(Html.fromHtml("<b>Year: </b>" + object.getString("year")));
                         aq.id(txt_movie_length).text(Html.fromHtml("<b>Length: </b>" + object.getString("length")));
                         aq.id(coverImageView).image(object.getString("cover"), true, true, 0, 0, null, AQuery.FADE_IN_NETWORK, AQuery.RATIO_PRESERVE);
+                        movie = new Movie(object);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

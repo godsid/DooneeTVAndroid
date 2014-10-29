@@ -49,5 +49,11 @@ public class Config {
     final static public long SPLASH_SCREEN_DELAY = 3000;
 
 
+    final static public String videoUrl = "http://122.155.197.142:1935/vod/_definst_/mp4:{movie_path}/playlist.m3u8";
+    final static public String sampleVideoHttp = "http://122.155.197.142:1935/vod/mp4:sample.mp4/playlist.m3u8";
+    final static public String sampleVideoRTSP = "rtsp://122.155.197.142:1935/vod/sample.mp4";
+    final static public String sampleVideoWeb = "http://122.155.197.142/sample.mp4";
+
+
 
 }

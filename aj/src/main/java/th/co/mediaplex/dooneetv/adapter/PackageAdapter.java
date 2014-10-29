@@ -1,19 +1,19 @@
 package th.co.mediaplex.dooneetv.adapter;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+
 import android.widget.ProgressBar;
-
 import com.androidquery.AQuery;
-
 import java.util.ArrayList;
-
 import th.co.mediaplex.dooneetv.R;
 import th.co.mediaplex.dooneetv.obj.MoviePackage;
+
 
 /**
  * Created by Banpot.S on 10/16/14 AD.
