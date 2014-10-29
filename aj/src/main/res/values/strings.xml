@@ -47,4 +47,5 @@
     <string name="test_running">Test Running...</string>
     <string name="enable_background_audio">Play in background</string>
 
+    <string name="error_missing_movie">ไม่สามารถเล่นวีดีโอนี้ได้</string>
 </resources>
